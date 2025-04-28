@@ -1,0 +1,210 @@
+/* Configuração geral */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    background-color: #e9ecef;
+    color: #333;
+}
+
+/* Ajuste do container principal */
+#tables-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Configuração dos meses */
+.month-container {
+    background: linear-gradient(to right, #ffffff, #f8f9fa);
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    padding: 25px;
+    transition: 0.3s;
+    border: 2px solid black; /* Restaurando bordas pretas */
+}
+
+.month-container:hover {
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Estilos de tabelas */
+.month-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    table-layout: fixed;
+    border: 2px solid black; /* Restaurando bordas pretas */
+}
+
+.month-container th,
+.month-container td {
+    border: 2px solid black; /* Restaurando bordas pretas */
+    padding: 5px;
+    font-size: 0.9em;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-align: center;
+}
+
+/* Botões gerais */
+button {
+    padding: 12px 18px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Cores dos botões */
+.save-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.save-btn:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+.edit-btn {
+    background-color: #ffc107;
+    color: black;
+}
+
+.edit-btn:hover {
+    background-color: #e0a800;
+    transform: scale(1.05);
+}
+
+.month-container td button {
+    background-color: #dc3545;
+    color: white;
+    font-size: 0.9em;
+    padding: 8px;
+}
+
+.month-container td button:hover {
+    background-color: #c82333;
+    transform: scale(1.1);
+}
+
+/* Botão verde para adicionar dívidas parceladas */
+.parcelada-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 12px 18px;
+    font-size: 16px;
+    background-color: #28a745;
+    color: white;
+    border-radius: 8px;
+}
+
+.parcelada-btn:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+/* Ajuste para alinhar renda mensal e lista de compras lado a lado */
+.renda-e-compras {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px; /* Mantendo ajuste para melhor espaçamento */
+    margin-top: 20px;
+    padding: 0 40px;
+}
+
+/* Seção da Renda */
+.income-container {
+    flex: 1;
+    max-width: 700px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    text-align: center;
+    border: 2px solid black; /* Restaurando bordas pretas */
+}
+
+.income-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Ajuste para a lista de compras */
+#compras {
+    flex: 1;
+    max-width: 380px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    margin-left: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid black; /* Restaurando bordas pretas */
+}
+
+#compras:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+#user-icon-container {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    text-align: center;
+    z-index: 999;
+}
+
+#user-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #007bff;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+}
+
+#logout-button {
+    margin-top: 8px;
+}
+
+#logout-button button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .renda-e-compras {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .income-container, #compras {
+        max-width: 100%;
+    }
+}

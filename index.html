@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Controle de Dívidas Mensal</title>
+  <link rel="stylesheet" href="styles.css">
+ <!-- Firebase App (obrigatório) -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+
+<!-- Firebase Authentication -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+
+<!-- Firebase Firestore -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+
+
+
+</head>
+<body>
+  <h1>Controle de Dívidas Mensal</h1>
+
+  <!-- Selecionar mês antes de adicionar dívida parcelada -->
+  <label for="mes-selecionado">Escolha o mês:</label>
+  <select id="mes-selecionado">
+    <option value="0">Janeiro</option>
+    <option value="1">Fevereiro</option>
+    <option value="2">Março</option>
+    <option value="3">Abril</option>
+    <option value="4">Maio</option>
+    <option value="5">Junho</option>
+    <option value="6">Julho</option>
+    <option value="7">Agosto</option>
+    <option value="8">Setembro</option>
+    <option value="9">Outubro</option>
+    <option value="10">Novembro</option>
+    <option value="11">Dezembro</option>
+  </select>
+  <button class="parcelada-btn" onclick="addParcelada()">➕ Adicionar Dívida Parcelada</button>
+
+  <div id="user-icon-container">
+    <div id="user-icon" onclick="toggleLogout()">
+      <span id="user-initial"></span>
+    </div>
+    <div id="logout-button" style="display: none;">
+      <button onclick="logout()">Logout</button>
+    </div>
+  </div>
+  
+  
+
+  <div id="tables-container"></div>
+
+  <div class="renda-e-compras">
+    <div class="income-container">
+      <h2>💰 Renda Mensal do Casal</h2>
+  
+      <div class="income-box">
+        <h3>Renda de Vitor</h3>
+        <label>Adiantamento:</label>
+        <input type="number" id="vitor-15zena1" value="1240" disabled>
+        <label>5º Dia Útil:</label>
+        <input type="number" id="vitor-15zena2" value="1500" disabled>
+        <label>Vale Alimentação:</label>
+        <input type="number" id="vitor-vale" value="500" disabled>
+        <h3>Valor Bruto: R$ <span id="vitor-total">3240</span></h3>
+        <div class="action-buttons">
+          <button class="edit-btn" onclick="toggleEditIncome('vitor')">✏️ Editar</button>
+          <button class="save-btn" onclick="saveIncome('vitor')">💾 Salvar</button>
+        </div>
+      </div>
+  
+      <div class="income-box">
+        <h3>Renda de Aline</h3>
+        <label>Adiantamento:</label>
+        <input type="number" id="aline-adiantamento" value="0" disabled>
+        <label>5º Útil 1:</label>
+        <input type="number" id="aline-5util1" value="0" disabled>
+        <label>5º Útil 2:</label>
+        <input type="number" id="aline-5util2" value="1989" disabled>
+        <h3>Valor Bruto: R$ <span id="aline-total">1989</span></h3>
+        <div class="action-buttons">
+          <button class="edit-btn" onclick="toggleEditIncome('aline')">✏️ Editar</button>
+          <button class="save-btn" onclick="saveIncome('aline')">💾 Salvar</button>
+        </div>
+      </div>
+  
+      <div class="total-box">
+        <h2>💵 Total do Casal: R$ <span id="total-casal">5229</span></h2>
+      </div>
+    </div>
+  
+    <div id="compras">
+      <h2>Lista de Compras</h2>
+      <input type="text" id="item-compra" placeholder="Digite o item a comprar">
+      <input type="number" id="valor-compra" placeholder="Valor do item">
+      <button onclick="adicionarCompra()">Adicionar</button>
+      <ul id="lista-compras"></ul>
+      <h3>Total: R$ <span id="total-compras">0.00</span></h3>
+    </div>
+  </div>
+  
+    
+
+  <script src="script.js"></script>
+
+
+</body>
+</html>
