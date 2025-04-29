@@ -100,3 +100,27 @@ button {
 button:hover {
     background-color: #00e67a;
 }
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+        width: 95%;
+        margin: 20px;
+    }
+
+    .left-side, .right-side {
+        padding: 20px;
+        width: 100%;
+    }
+
+    .left-side img {
+        width: 200px;
+        margin-top: 20px;
+    }
+
+    form {
+        max-width: 100%;
+    }
+}
+
