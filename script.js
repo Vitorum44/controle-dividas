@@ -339,44 +339,6 @@ function carregarRendas() {
     });
 }
 
-// === COMPRAS ===
-function adicionarCompra() {
-    const itemNome = document.getElementById("item-compra").value;
-    const itemValor = parseFloat(document.getElementById("valor-compra").value) || 0;
-    if (!itemNome || itemValor <= 0) return;
-
-    const lista = document.getElementById("lista-compras");
-    const li = document.createElement("li");
-
-    li.innerHTML = `
-        <span>${itemNome} - R$ ${itemValor.toFixed(2)}</span>
-        <button onclick="removerCompra(this, ${itemValor})">❌ Excluir</button>
-    `;
-
-    li.setAttribute("data-valor", itemValor);
-    lista.appendChild(li);
-
-    document.getElementById("item-compra").value = "";
-    document.getElementById("valor-compra").value = "";
-
-    atualizarTotalCompras();
-}
-
-function removerCompra(elemento, valor) {
-    elemento.parentElement.remove();
-    atualizarTotalCompras();
-}
-
-function atualizarTotalCompras() {
-    const lista = document.querySelectorAll("#lista-compras li");
-    let total = 0;
-
-    lista.forEach(item => {
-        total += parseFloat(item.getAttribute("data-valor")) || 0;
-    });
-
-    document.getElementById("total-compras").textContent = total.toFixed(2);
-}
 
 // === INICIALIZAÇÃO ===
 exibirMeses();
