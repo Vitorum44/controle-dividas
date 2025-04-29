@@ -176,25 +176,24 @@ button {
     cursor: pointer;
 }
 
-/* Responsividade */
-@media (max-width: 1024px) {
-    #tables-container {
-        grid-template-columns: repeat(2, 1fr);
+@media (max-width: 500px) {
+    .table-wrapper {
+      overflow-x: auto;
     }
-}
-
-@media (max-width: 768px) {
-    #tables-container {
-        grid-template-columns: 1fr;
+  
+    table {
+      min-width: 400px;
     }
-
-    .renda-e-compras {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
+  
+    .remove-btn {
+      white-space: nowrap;
+      padding: 4px 8px;
+      font-size: 12px;
     }
-
-    .income-container {
-        max-width: 100%;
+  
+    td, th {
+      font-size: 13px;
+      padding: 4px;
     }
-}
+  }
+  
